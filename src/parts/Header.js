@@ -3,7 +3,7 @@ import React from "react";
 import IconText from "./IconText";
 
 export default function Header(props) {
-  console.log(props);
+  // console.log(props);
   const getNavLinkClass = (path) => {
     return props.location.pathname === path ? " active" : "";
   };
