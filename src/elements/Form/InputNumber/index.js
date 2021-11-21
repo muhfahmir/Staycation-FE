@@ -9,7 +9,7 @@ export default function Number(props) {
     props;
 
   // state local
-  const [InputValue, setInputValue] = useState(`${prefix}${value}${suffix}`);
+  // const [InputValue, setInputValue] = useState(`${prefix}${value}${suffix}`);
 
   // perubahan berapa malam
   const onChange = (e) => {
@@ -22,16 +22,16 @@ export default function Number(props) {
     const patternNumeric = new RegExp("[0-9]*");
     const isNumeric = patternNumeric.test(value);
 
-    if (isNumeric && +value <= max && +value >= min) {
+    if (+value <= max && +value >= min) {
       props.onChange({
         target: {
           name: name,
           value: +value,
         },
       });
-      setInputValue(
-        `${prefix}${value}${suffix}${isSuffixPlural && value > 1 ? "s" : ""}`
-      );
+      // setInputValue(
+
+      // );
     }
   };
 
@@ -65,13 +65,16 @@ export default function Number(props) {
         </div>
 
         <input
+          readOnly
           min={min}
           max={max}
           name={name}
-          pattern="[0-9]*"
+          // pattern="[0-9]*"
           className="form-control"
           placeholder={placeholder ? placeholder : "0"}
-          value={String(InputValue)}
+          value={`${prefix}${value}${suffix}${
+            isSuffixPlural && value > 1 ? "s" : ""
+          }`}
           onChange={onChange}
         />
 

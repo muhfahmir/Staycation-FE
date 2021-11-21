@@ -110,7 +110,12 @@ section {
 }
 
 .card {
-    height: 100%;
+    // height: 100%;
+    border-radius: 15px;
+
+    &.bordered {
+        border: 3px solid $gray-200;
+    }
 
     .tag {
         z-index: 3;
@@ -153,7 +158,7 @@ section {
         overflow: hidden;
         cursor: pointer;
         height: 100%;
-        border-radius: 15px;
+
 
         &:after {
             position: absolute;
@@ -250,5 +255,12 @@ footer {
         margin: 50px 0;
         font-weight: 300;
         color: $gray-500;
+    }
+}
+
+main {
+    p {
+        color: $gray-500;
+        font-weight: 300;
     }
 }
