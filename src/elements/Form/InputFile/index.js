@@ -1,6 +1,5 @@
-import React, { useRef, useState } from "react";
 import propTypes from "prop-types";
-
+import React, { useRef, useState } from "react";
 import "./index.scss";
 
 export default function File(props) {
@@ -53,7 +52,7 @@ export default function File(props) {
           className="d-none"
           type="file"
           value={FileName}
-          onChange={onChange}
+          onChange={props.onChange}
         />
         {/* masking */}
         <input

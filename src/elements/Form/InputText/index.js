@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import propTypes from "prop-types";
 
+import './index.scss'
+
 export default function Text(props) {
   const {
     value,
@@ -72,7 +74,7 @@ Text.defaultProps = {
   type: "text",
   pattern: "",
   placeholder: "Please type here...",
-  errorResponse: "Pleace match the requested format...",
+  errorResponse: "Please match the requested format...",
 };
 
 Text.propTypes = {
@@ -80,7 +82,7 @@ Text.propTypes = {
   value: propTypes.oneOfType([propTypes.number, propTypes.string]).isRequired,
   onChange: propTypes.func.isRequired,
   prepend: propTypes.oneOfType([propTypes.number, propTypes.string]),
-  append: propTypes.oneOfType([propTypes.number, propTypes.number.string]),
+  append: propTypes.oneOfType([propTypes.number, propTypes.string]),
   type: propTypes.string,
   placeholder: propTypes.string,
   outerClassName: propTypes.string,
