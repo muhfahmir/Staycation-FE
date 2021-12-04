@@ -67,7 +67,7 @@ export default function Hero(props) {
                   alt={`${props.data.treasures} Treasures`}
                 />
                 <h6 className="mt-3">
-                  {formatNumber(props.data.travelers)}{" "}
+                  {formatNumber(props.data.treasures)}{" "}
                   <span className="text-gray-500 font-weight-light">
                     treasures
                   </span>
