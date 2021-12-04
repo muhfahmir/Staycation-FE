@@ -35,18 +35,17 @@ export default function Payment(props) {
                     <dd>BuildWithAngga</dd>
                   </dl>
                 </div>
-
-                <div className="row">
-                  <div className="col-3 text-right">
-                    <img src={logoMandiri} alt="Mandiri" width={60} />
-                  </div>
-                  <div className="col">
-                    <dl>
-                      <dd>Bank Mandiri</dd>
-                      <dd>2208 1996</dd>
-                      <dd>BuildWithAngga</dd>
-                    </dl>
-                  </div>
+              </div>
+              <div className="row">
+                <div className="col-3 text-right">
+                  <img src={logoMandiri} alt="Mandiri" width={60} />
+                </div>
+                <div className="col">
+                  <dl>
+                    <dd>Bank Mandiri</dd>
+                    <dd>2208 1996</dd>
+                    <dd>BuildWithAngga</dd>
+                  </dl>
                 </div>
               </div>
             </Fade>
