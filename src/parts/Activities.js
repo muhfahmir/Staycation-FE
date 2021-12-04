@@ -3,7 +3,7 @@ import Fade from "react-reveal/Fade";
 import Button from "elements/Button";
 
 export default function Activites({ data }) {
-  console.log(data);
+  // console.log(data);
   if (data.length === 0) return null;
   return (
     <section className="container" key={`activity`}>

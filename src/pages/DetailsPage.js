@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Fade from "react-reveal/Fade";
 
 // data
-import ItemDetails from "json/itemDetails.json";
+// import ItemDetails from "json/itemDetails.json";
 
 import Header from "parts/Header";
 import FeaturedImage from "parts/FeaturedImage";
@@ -28,7 +28,7 @@ class DetailsPage extends Component {
 
     if (!this.props.page[this.props.match.params.id])
       this.props.fetchPage(
-        `${process.env.REACT_APP_HOST}/api/v1/member/detail-page/${this.props.match.params.id}`,
+        `/detail-page/${this.props.match.params.id}`,
         this.props.match.params.id
       );
   }

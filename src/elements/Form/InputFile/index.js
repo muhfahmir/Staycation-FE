@@ -14,15 +14,6 @@ export default function File(props) {
     outerClassName,
     inputClassName,
   } = props;
-  //   const {
-  //     placeholder,
-  //     name,
-  //     accept,
-  //     prepend,
-  //     append,
-  //     outerClassName,
-  //     inputClassName,
-  //   } = props;
 
   const refInputFile = useRef(null);
 

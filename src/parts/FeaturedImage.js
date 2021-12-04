@@ -10,7 +10,7 @@ export default function FeaturedImage({ data }) {
             <div
               key={`featuredImage-${index}`}
               className={`item ${index > 0 ? "column-5" : "column-7"} ${
-                index > 0 ? "row-1" : "row-2"
+                index > 0 ? "row-1" : "row-2 h-500"
               }`}
             >
               <Fade bottom delay={300 * index}>

@@ -10,6 +10,9 @@ import Example from "pages/Example";
 import Example2 from "pages/Example2";
 import Example3 from "pages/Example3";
 
+// toast message
+import { ToastContainer } from "react-toastify";
+
 function App() {
   return (
     <div className="App">
@@ -21,6 +24,7 @@ function App() {
         <Route path="/example2" component={Example2} exact />
         <Route path="/example3" component={Example3} exact />
       </Router>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }
