@@ -26,7 +26,7 @@ export default function File(props) {
 
   const refInputFile = useRef(null);
 
-  // untuk file engubah nama
+  // untuk file mengubah nama
   const onChange = (event) => {
     setFileName(event.target.value);
     props.onChange({
@@ -52,7 +52,7 @@ export default function File(props) {
           className="d-none"
           type="file"
           value={FileName}
-          onChange={props.onChange}
+          onChange={onChange}
         />
         {/* masking */}
         <input

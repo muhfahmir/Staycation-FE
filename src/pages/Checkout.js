@@ -16,7 +16,11 @@ import Completed from "parts/Checkout/Completed";
 
 import ItemDetails from "json/itemDetails.json";
 
-export default class Checkout extends Component {
+// redux
+import { connect } from "react-redux";
+import { checkoutBooking } from "store/actions/checkout";
+
+class Checkout extends Component {
   state = {
     data: {
       firstName: "",
@@ -44,12 +48,26 @@ export default class Checkout extends Component {
 
   render() {
     const { data } = this.state;
+    const { checkout } = this.props;
 
-    const checkout = {
-      duration: 3,
-    };
+    if (!checkout)
+      return (
+        <div
+          className="row align-items-center justify-content-center text-center"
+          style={{ height: "100vh" }}
+        >
+          <div className="col-3">
+            Pilih kamar dulu
+            <div>
+              <Button className="btn mt-5" type="link" href="/" isLight>
+                Back
+              </Button>
+            </div>
+          </div>
+        </div>
+      );
 
-const steps = {
+    const steps = {
       bookingInformation: {
         title: "Booking Information",
         description: "Please fill up the blank fields below",
@@ -83,10 +101,9 @@ const steps = {
     };
 
     return (
-
       <>
         <Header isCentered />
-         <Stepper steps={steps} initialStep="bookingInformation">
+        <Stepper steps={steps} initialStep="bookingInformation">
           {(prevStep, nextStep, CurrentStep, steps) => (
             // menggunakna react fragment supaya kembalian render 1 aja
             <>
@@ -168,7 +185,10 @@ const steps = {
                     className="btn px-5"
                     className="btn"
                     type="link"
-                    isBlock isPrimary hasShadow href=""
+                    isBlock
+                    isPrimary
+                    hasShadow
+                    href=""
                   >
                     Back to Home
                   </Button>
@@ -177,97 +197,13 @@ const steps = {
             </>
           )}
         </Stepper>
-{/*
-         <Stepper steps={steps} initialStep="bookingInformation">
-          {(prevStep, nextStep, CurrentStep, steps) => {
-            <>
-              <Numbering
-                data={steps}
-                current={CurrentStep}
-                style={{ marginBottom: 50 }}
-              />
-
-              <Meta data={steps} current={CurrentStep} />
-
-              <MainContent data={steps} current={CurrentStep} />
-
-              {CurrentStep === "bookingInformation" && (
-                <Controller>
-                  {data.firstName !== "" &&
-                    data.lastName !== "" &&
-                    data.email !== "" &&
-                    data.phone !== "" && (
-                      <Fade>
-                        <Button
-                          className="btn mb-3"
-                          type="button"
-                          isBlock
-                          isPrimary
-                          hasShadow
-                          onClick={nextStep}
-                        >
-                          Continue to Book
-                        </Button>
-                      </Fade>
-                    )}
-                  <Button
-                    className="btn"
-                    type="link"
-                    isBlock
-                    isLight
-                    href={`/properties/${ItemDetails._id}`}
-                  >
-                    Cancel
-                  </Button>
-                </Controller>
-              )}
-
-              {CurrentStep === "payment" && (
-                <Controller>
-                  {data.proofPayment !== "" &&
-                    data.bankName !== "" &&
-                    data.bankHolder !== "" && (
-                      <Fade>
-                        <Button
-                          className="btn mb-3"
-                          type="button"
-                          isBlock
-                          isPrimary
-                          hasShadow
-                          onClick={nextStep}
-                        >
-                          Continue to Book
-                        </Button>
-                      </Fade>
-                    )}
-                  <Button
-
-                    className="btn"
-                    isBlock
-                    isLight
-                    onClick={prevStep}
-                  >
-                    Cancel
-                  </Button>
-                </Controller>
-              )}
-
-              {
-                CurrentStep === "completed" && (
-                  <Controller>
-                    <Button className="btn"
-                    type="link"
-                    isBlock isPrimary hasShadow href=""
-                    >
-                      Back to Home
-                    </Button>
-                  </Controller>
-                )
-              }
-            </>;
-          }}
-        </Stepper> */}
       </>
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  checkout: state.checkout,
+});
+
+export default connect(mapStateToProps)(Checkout);

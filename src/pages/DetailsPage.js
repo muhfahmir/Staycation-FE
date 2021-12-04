@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Fade from "react-reveal/Fade";
 
+// data
 import ItemDetails from "json/itemDetails.json";
 
 import Header from "parts/Header";
@@ -12,7 +13,12 @@ import Categories from "parts/Categories";
 import Testimony from "parts/Testimony";
 import Footer from "parts/Footer";
 
-export default class DetailsPage extends Component {
+// redux
+import { connect } from "react-redux";
+import { checkoutBooking } from "store/actions/checkout";
+
+// highordercomponents
+class DetailsPage extends Component {
   // component baru didownload (load pertama kali)
   componentDidMount() {
     window.title = "Staycation | Details Page";
@@ -44,7 +50,10 @@ export default class DetailsPage extends Component {
             </div>
             <div className="col-5">
               <Fade bottom>
-                <BookingForm itemDetails={ItemDetails} />
+                <BookingForm
+                  itemDetails={ItemDetails}
+                  startBooking={this.props.checkoutBooking}
+                />
               </Fade>
             </div>
           </div>
@@ -56,3 +65,5 @@ export default class DetailsPage extends Component {
     );
   }
 }
+
+export default connect(null, { checkoutBooking })(DetailsPage);
