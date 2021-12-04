@@ -31,3 +31,11 @@ jika direducers ada checkout.js maka seharusnya di actions ada checkout.js juga
 //method
 componentDidMount = ketika komponen sudah bener bener ke load kita akan lakuin tambahin (life cycle)
 componentDidUpdate
+
+React HOOOKs
+useState = untuk update seperti input tanggal dan sebagainya yang ngalami perubahan
+useRef = react create ref
+useEffect = lifecyle yang dikenalkan
+- componentDidMount = DOM bener-bener ke load terus kita mau ngapain
+- componentDidUpdate = 2 param (prevProps,prevState) bisa buat bandingan jika prevProps != prevState
+- componentWillUnmount = menghapus function jika keluar dari DOM
